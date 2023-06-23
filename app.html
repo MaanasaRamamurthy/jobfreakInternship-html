@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Tabbed Content</title>
+  <link rel="stylesheet" href="app.css">
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=Ysabeau+Infant:ital@1&display=swap');
+  </style>
+</head>
+<body>
+  <div class="page">
+    <div class="left-panel">
+        <div class="tab active" onclick="handleTabClick('home')">Home</div>
+        <div class="tab" onclick="handleTabClick('contact')">Contact</div>
+        <div class="tab" onclick="handleTabClick('information')">Information</div>
+        <div class="tab" onclick="handleTabClick('guide')">Guide</div>
+        
+    </div>
+    <div class="content-panel" id="contentPanel"></div>
+  </div>
+
+  <script>
+    document.addEventListener('DOMContentLoaded', function() {
+  // Set initial content
+  handleTabClick('home');
+    })
+    const handleTabClick = (tab) => {
+      const contentPanel = document.getElementById('contentPanel');
+      let content = '';
+
+      switch (tab) {
+        case 'home':
+          content = '<div class="right-panel home-panel">Home Content</div>';
+          break;
+        case 'contact':
+          content = '<div class="right-panel contact-panel">Contact Information</div>';
+          break;
+        case 'information':
+          content = '<div class="right-panel info-panel">Information Content</div>';
+          break;
+        case 'guide':
+          content = '<div class="right-panel guide-panel">Guide Content</div>';
+          break;
+      }
+
+      contentPanel.innerHTML = content;
+    };
+  </script>
+</body>
+</html>
